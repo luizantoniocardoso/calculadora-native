@@ -23,9 +23,7 @@ export default function Calculadora() {
       return;
     }
     if (['+', '-', '*', '/', '%'].includes(buttonPressed)) {
-      if (operationPending) {
-        calculate();
-      }
+      if (operationPending) calculate();
       setCurrentNumber((prev) => prev + ' ' + buttonPressed + ' ');
       setOperationPending(true);
       return;
@@ -35,7 +33,7 @@ export default function Calculadora() {
 
   const calculate = () => {
     try {
-      const result = eval(currentNumber.replace(/ /g, '')); // Remove espaços e avalia a expressão
+      const result = eval(currentNumber.replace(/ /g, '')); 
       setLastNumber(currentNumber + ' = ');
       setCurrentNumber(result.toString());
       setOperationPending(false);
